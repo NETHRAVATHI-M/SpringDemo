@@ -1,5 +1,5 @@
 
-package com.infotech.config;
+package com.evertz.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

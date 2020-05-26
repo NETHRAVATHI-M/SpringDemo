@@ -1,7 +1,8 @@
-package com.infotech.controller;
+package com.evertz.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.infotech.domain.Register;
-import com.infotech.service.EmployeeService;
+import com.evertz.domain.Register;
+import com.evertz.service.EmployeeService;
 
 @Controller
 @RequestMapping(value = "/")
@@ -118,25 +119,25 @@ public class HelloworldController {
 
 	@RequestMapping(value = "/DepositFail", method = RequestMethod.POST)
 	public String DepositFail(@ModelAttribute("redirectLogin") Register register) {
-		return "LoginSuccess";
+		return "login";
 
 	}
 
 	@RequestMapping(value = "/DepositSuccess", method = RequestMethod.POST)
 	public String DepositSuccess() {
-		return "loginSuccess";
+		return "login";
 
 	}
 
 	@RequestMapping(value = "/WithdrawSuccess", method = RequestMethod.POST)
 	public String withdrawSuccess() {
-		return "loginSuccess";
+		return "login";
 
 	}
 
 	@RequestMapping(value = "/WithdrawFail", method = RequestMethod.POST)
 	public String withdrawFail() {
-		return "loginSuccess";
+		return "login";
 
 	}
 
@@ -187,8 +188,6 @@ public class HelloworldController {
 		}
 		UserList = empservice.save(register);
 
-		
-		
 		int size = UserList.size();
 		int j = 0;
 		for (int i = 2; i < size + 1; i++) {
@@ -207,23 +206,21 @@ public class HelloworldController {
 	}
 
 	@RequestMapping(value = "/LoginProcess", method = RequestMethod.POST)
-	public ModelAndView loginEmployee(@ModelAttribute("LoginProcess") Register register) {
+	public ModelAndView loginEmployee(HttpServletRequest req) {
 		Register register1 = new Register();
-		int userId = register.getUserId();
+		ModelAndView model = new ModelAndView();
+		int userId = Integer.parseInt(req.getParameter("userId"));
 		System.out.println("the username is " + userId);
-		String password = register.getPassword();
+		String password = req.getParameter("password");
 		int size = UserList.size();
 
 		for (int i = 0; i < size; i++) {
 
 			register1 = UserList.get(i);
-			System.out.println(register.getUserId() + "id" + userId);
 			if (register1.getUserId() == userId && register1.getPassword().equals(password)) {
-				System.out.println(size);
-				return new ModelAndView("loginSuccess", "username",
-						"UserId=:" + register1.getUserId() + "\t\t\t\t" + "password=" + register1.getPassword()
-								+ "\n\n\n" + "email=" + register1.getEmail() + "\n\n\n" + "address="
-								+ register1.getAddress() + "\n\n\n\n\n" + "phono=" + register1.getPhone());
+				model.addObject("register", register1);
+				model.setViewName("loginSuccess");
+				return model;
 			}
 		}
 

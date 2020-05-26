@@ -8,13 +8,28 @@
 <title>Login page</title>
 </head>
 <body>
-	<h1>User Details</h1>
-	<table>
-		<tr>
-			<td><h2>${username}</h2></td>
-		</tr>
-	</table>
-<div align="center">
+	<div align="center">
+		<h1>User Details</h1>
+
+		<table border="1" cellpadding="3">
+			<tr>
+				<td><h4>User ID</h4></td>
+				<td><h4>User Email</h4></td>
+				<td><h4>Address</h4></td>
+				<td><h4>Contact</h4></td>
+				<td><h4>Balance</h4></td>
+			</tr>
+			<tr>
+				<td>${register.userId}</td>
+				<td>${register.email}</td>
+				<td>${register.address}</td>
+				<td>${register.phone}</td>
+				<td>${register.balance}</td>
+			</tr>
+		</table>
+
+	</div>
+	<div align="center">
 		<h4>Modify your details according to your wish</h4>
 		<form:form action="deposit" method="post" modelAttribute="deposit">
 			<table>
@@ -36,8 +51,8 @@
 			</table>
 
 		</form:form>
-		
-		
+
+
 		<form:form action="withdraw" method="post" modelAttribute="withdraw">
 			<table>
 				<tr>
@@ -68,7 +83,7 @@
 			</table>
 
 		</form:form>
-		
+
 
 
 	</div>

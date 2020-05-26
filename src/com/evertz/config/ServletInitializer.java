@@ -1,4 +1,4 @@
-package com.infotech.config;
+package com.evertz.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
