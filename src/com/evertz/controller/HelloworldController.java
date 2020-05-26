@@ -1,4 +1,4 @@
-package com.infotech.controller;
+package com.evertz.controller;
 
 import java.util.ArrayList;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.infotech.domain.Register;
-import com.infotech.service.EmployeeService;
+import com.evertz.domain.Register;
+import com.evertz.service.EmployeeService;
 
 @Controller
 @RequestMapping(value = "/")

@@ -1,4 +1,4 @@
-package com.infotech.domain;
+package com.evertz.domain;
 
 public class Register {
 

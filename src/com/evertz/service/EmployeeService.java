@@ -1,10 +1,10 @@
-package com.infotech.service;
+package com.evertz.service;
 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import com.infotech.domain.Register;
+import com.evertz.domain.Register;
 
 @Service
 public class EmployeeService {
