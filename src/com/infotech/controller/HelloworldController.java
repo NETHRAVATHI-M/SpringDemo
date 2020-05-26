@@ -188,8 +188,6 @@ public class HelloworldController {
 		}
 		UserList = empservice.save(register);
 
-		
-		
 		int size = UserList.size();
 		int j = 0;
 		for (int i = 2; i < size + 1; i++) {
@@ -211,7 +209,7 @@ public class HelloworldController {
 	public ModelAndView loginEmployee(HttpServletRequest req) {
 		Register register1 = new Register();
 		ModelAndView model = new ModelAndView();
-		int userId =Integer.parseInt(req.getParameter("userId"));
+		int userId = Integer.parseInt(req.getParameter("userId"));
 		System.out.println("the username is " + userId);
 		String password = req.getParameter("password");
 		int size = UserList.size();
@@ -220,12 +218,12 @@ public class HelloworldController {
 
 			register1 = UserList.get(i);
 			if (register1.getUserId() == userId && register1.getPassword().equals(password)) {
-				model.addObject("register",register1);
+				model.addObject("register", register1);
 				model.setViewName("loginSuccess");
 				return model;
 			}
 		}
-		
+
 		return new ModelAndView("LoginFail", "username", "Useername or password is not correct");
 
 	}
