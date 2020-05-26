@@ -11,17 +11,16 @@
 <body>
 	<div align="center">
 		<h1>Provide Employee Login credentials</h1>
-		<form:form action="LoginProcess" method="post"
-			modelAttribute="LoginProcess">
+		<form:form action="LoginProcess" method="post">
 			<table>
 				<tr>
 					<td>userId</td>
-					<td><form:input path="UserId" /></td>
+					<td><input type="text" name="userId" id="userId" /></td>
 				</tr>
 
 				<tr>
 					<td>password</td>
-					<td><form:input path="password" /></td>
+					<td><input type="password" name="password" id="password"  /></td>
 				</tr>
 
 
